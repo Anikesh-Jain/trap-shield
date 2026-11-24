@@ -6,7 +6,12 @@
  * - Centralizes error parsing, status mapping, and endpoint contracts.
  */
 
-const BASE_URL = (import.meta.env?.VITE_API_BASE_URL || '/api/v1').replace(/\/$/, '');
+let rawBase = (import.meta.env?.VITE_API_BASE_URL || '/api/v1').trim().replace(/\/+$/, '');
+// Ensure /api/v1 prefix is appended if an origin root was configured without path
+if (rawBase && !rawBase.endsWith('/api/v1') && !rawBase.includes('/api/')) {
+  rawBase = `${rawBase}/api/v1`;
+}
+const BASE_URL = rawBase;
 
 async function apiRequest(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;

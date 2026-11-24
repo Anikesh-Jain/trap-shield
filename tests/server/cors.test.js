@@ -22,6 +22,7 @@ import {
   resolveAllowedOrigins,
   DEFAULT_PRODUCTION_ORIGINS,
 } from '../../server/src/config/env.js';
+import { getAuthCookieOptions } from '../../server/src/utils/token.js';
 import { configureCors } from '../../server/src/middleware/security.js';
 import { errorHandler } from '../../server/src/middleware/errorHandler.js';
 
@@ -230,4 +231,26 @@ test('CORS Isolation - Development mode allows http://localhost:3000', async () 
   } finally {
     await new Promise((resolve) => devServer.close(resolve));
   }
+});
+
+// ----------------------------------------------------
+// 4. CROSS-SITE HTTP-ONLY COOKIE ATTRIBUTE TESTS
+// ----------------------------------------------------
+test('Cookie Security - Production cookie enforces SameSite=None, Secure=true, and Partitioned=true for cross-site auth', () => {
+  const options = getAuthCookieOptions({ isProduction: true });
+
+  assert.equal(options.httpOnly, true, 'Auth cookie must be httpOnly');
+  assert.equal(options.secure, true, 'Cross-site production cookie requires Secure');
+  assert.equal(options.sameSite, 'none', 'Cross-site production cookie requires SameSite=None');
+  assert.equal(options.partitioned, true, 'Cross-site production cookie requires Partitioned (CHIPS)');
+  assert.equal(options.path, '/', 'Auth cookie must be available across entire application');
+});
+
+test('Cookie Security - Development cookie preserves SameSite=Lax and Secure=false for local HTTP', () => {
+  const options = getAuthCookieOptions({ isProduction: false });
+
+  assert.equal(options.httpOnly, true);
+  assert.equal(options.secure, false, 'Local development does not require HTTPS/Secure');
+  assert.equal(options.sameSite, 'lax', 'Local development uses SameSite=Lax');
+  assert.equal(options.partitioned, false);
 });

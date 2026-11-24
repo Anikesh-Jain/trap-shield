@@ -11,6 +11,9 @@ import apiV1Routes from './routes/index.js';
 
 export const app = express();
 
+// Trust reverse proxy (Render, Cloudflare, Heroku) for HTTPS detection and accurate client IP
+app.set('trust proxy', 1);
+
 // 1. Security & Protection Middleware
 app.use(configureSecurityHeaders());
 app.use(configureCors());
