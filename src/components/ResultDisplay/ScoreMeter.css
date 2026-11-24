@@ -1,0 +1,205 @@
+.score-meter-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--surface-paper);
+  border: 1px solid var(--surface-fold);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.score-meter-card.risk-critical {
+  border-color: var(--risk-critical-border);
+  background: linear-gradient(135deg, rgba(245, 213, 211, 0.45) 0%, #FCFAF6 100%);
+}
+
+.score-meter-card.risk-high {
+  border-color: var(--risk-high-border);
+  background: linear-gradient(135deg, rgba(250, 223, 208, 0.45) 0%, #FCFAF6 100%);
+}
+
+.score-meter-card.risk-elevated {
+  border-color: var(--risk-medium-border);
+  background: linear-gradient(135deg, rgba(251, 240, 207, 0.45) 0%, #FCFAF6 100%);
+}
+
+.score-meter-card.risk-low {
+  border-color: var(--risk-low-border);
+  background: linear-gradient(135deg, rgba(230, 240, 225, 0.45) 0%, #FCFAF6 100%);
+}
+
+.gauge-section {
+  flex-shrink: 0;
+}
+
+.circular-meter {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meter-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.meter-bg-circle {
+  fill: none;
+  stroke: var(--surface-fold);
+}
+
+.meter-val-circle {
+  fill: none;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.meter-center-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.meter-score-value {
+  font-family: var(--font-mono);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-cypress-ink);
+}
+
+.meter-score-scale {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.meter-score-caption {
+  font-family: var(--font-heading);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+.classification-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.classification-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.classification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.classification-badge.risk-critical {
+  background: var(--risk-critical-bg);
+  border: 1px solid var(--risk-critical-border);
+  color: var(--risk-critical-text);
+}
+
+.classification-badge.risk-high {
+  background: var(--risk-high-bg);
+  border: 1px solid var(--risk-high-border);
+  color: var(--risk-high-text);
+}
+
+.classification-badge.risk-elevated {
+  background: var(--risk-medium-bg);
+  border: 1px solid var(--risk-medium-border);
+  color: var(--risk-medium-text);
+}
+
+.classification-badge.risk-low {
+  background: var(--risk-low-bg);
+  border: 1px solid var(--risk-low-border);
+  color: var(--risk-low-text);
+}
+
+.badge-icon {
+  font-size: 0.85rem;
+}
+
+.metric-tag {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.classification-summary {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+  margin-bottom: 0.95rem;
+}
+
+.non-probability-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface-parchment);
+  border: 1px solid var(--surface-fold);
+  border-radius: var(--radius-md);
+  font-size: 0.775rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.disclaimer-icon {
+  color: var(--brand-verdigris);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.disclaimer-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 720px) {
+  .score-meter-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .classification-badge-row {
+    justify-content: center;
+  }
+  .non-probability-disclaimer {
+    text-align: left;
+  }
+}

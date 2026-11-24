@@ -1,0 +1,223 @@
+/**
+ * TRAPSHIELD Header Styles
+ * Direction: EVIDENCE ROOM
+ */
+
+.header-container {
+  background-color: var(--brand-cypress-ink);
+  color: #FFFFFF;
+  border-bottom: 1px solid var(--brand-deep-cypress);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 4px rgba(15, 34, 31, 0.2);
+  width: 100%;
+}
+
+.header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  cursor: pointer;
+}
+
+.header-logo {
+  width: 38px;
+  height: 38px;
+  background: var(--brand-deep-cypress);
+  border: 1px solid rgba(220, 235, 232, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-brass-seal);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.header-logo svg {
+  width: 22px;
+  height: 22px;
+}
+
+.header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.header-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.header-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.45rem;
+  background: rgba(184, 137, 59, 0.18);
+  color: var(--brand-brass-seal);
+  border: 1px solid rgba(184, 137, 59, 0.4);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.header-subtitle {
+  font-size: 0.775rem;
+  color: rgba(220, 235, 232, 0.75);
+  font-weight: 400;
+  margin-top: 0.1rem;
+}
+
+.header-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.header-view-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: rgba(15, 34, 31, 0.6);
+  padding: 0.2rem 0.3rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(220, 235, 232, 0.15);
+}
+
+.header-nav-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--brand-verdigris-mist);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.header-nav-link.active {
+  background-color: var(--brand-verdigris);
+  color: #FFFFFF;
+}
+
+.header-nav-link:hover:not(.active) {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.admin-nav-pill.active {
+  background-color: var(--brand-brass-seal);
+  color: var(--brand-deep-cypress);
+  font-weight: 700;
+}
+
+.header-privacy-link {
+  font-size: 0.78rem;
+  color: rgba(220, 235, 232, 0.8);
+  padding: 0.35rem 0.5rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.header-privacy-link:hover {
+  color: #FFFFFF;
+}
+
+.header-auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-btn-login {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(220, 235, 232, 0.25);
+  background-color: transparent;
+  transition: all 0.15s ease;
+}
+
+.header-btn-login:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-btn-register {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--brand-deep-cypress);
+  background-color: var(--brand-brass-seal);
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+}
+
+.header-btn-register:hover {
+  background-color: #c99843;
+}
+
+.header-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background-color: rgba(15, 34, 31, 0.6);
+  border: 1px solid rgba(220, 235, 232, 0.25);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.header-user-btn:hover {
+  background-color: rgba(15, 34, 31, 0.85);
+  border-color: var(--brand-verdigris);
+}
+
+.header-user-avatar {
+  font-size: 0.95rem;
+}
+
+.header-user-email {
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .header-subtitle {
+    display: none;
+  }
+  .header-nav-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

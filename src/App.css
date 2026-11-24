@@ -1,0 +1,194 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-bone);
+  color: var(--text-primary);
+}
+
+.main-content {
+  flex: 1;
+  padding: 2.25rem 1.25rem 3.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 940px;
+}
+
+/* Ensure sections and cards maintain comfortable scroll clearance below the sticky header */
+.hero-banner,
+.mode-selector-wrapper,
+.scanner-input-card,
+.result-display-wrapper,
+.empty-state-card,
+.error-state-card {
+  scroll-margin-top: 5rem;
+}
+
+.hero-banner {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+}
+
+.hero-heading {
+  font-family: var(--font-heading);
+  font-size: 2.15rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--brand-cypress-ink);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.hero-lead {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.55;
+  font-weight: 400;
+}
+
+.app-footer {
+  border-top: 1px solid var(--surface-fold);
+  background-color: var(--surface-parchment);
+  padding: 1.25rem 1.5rem;
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 940px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-brand {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-privacy-btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-privacy-btn:hover {
+  color: var(--text-link-hover);
+}
+
+.retention-pill-indicator {
+  margin-top: 0.85rem;
+  display: inline-flex;
+}
+
+.pill-authenticated {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--risk-low-text);
+  background-color: var(--risk-low-bg);
+  border: 1px solid var(--risk-low-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.pill-guest {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--surface-parchment);
+  border: 1px solid var(--surface-fold);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.result-wrapper-with-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.scan-saved-badge {
+  background-color: var(--brand-brass-wash);
+  border: 1px solid var(--brand-brass-seal);
+  color: #6a4d1b;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.6rem 0.95rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.scan-guest-badge {
+  background-color: var(--surface-parchment);
+  border: 1px solid var(--surface-fold);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.6rem 0.95rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.admin-access-denied-card {
+  background-color: var(--surface-paper);
+  border: 1px solid var(--risk-critical-border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+}
+
+.denied-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.admin-access-denied-card h2 {
+  font-family: var(--font-heading);
+  color: var(--risk-critical-text);
+  margin-bottom: 0.5rem;
+}
+
+.admin-access-denied-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 1.7rem;
+  }
+  .hero-lead {
+    font-size: 0.95rem;
+  }
+  .main-content {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
