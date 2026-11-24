@@ -13,6 +13,7 @@ async function startServer() {
     env: env.NODE_ENV,
     port: env.PORT,
     clientOrigin: env.CLIENT_ORIGIN,
+    allowedOrigins: env.CLIENT_ORIGINS,
   });
 
   // Attempt database connection (gracefully degrades to stateless mode on failure)
