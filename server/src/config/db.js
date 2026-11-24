@@ -7,7 +7,11 @@
 
 import mongoose from 'mongoose';
 import { env } from './env.js';
+import { configureDevelopmentDns } from './dns.js';
 import { logger } from '../utils/logger.js';
+
+// Configure development DNS resolver immediately upon module load before any SRV lookups occur
+configureDevelopmentDns();
 
 export const DB_STATES = Object.freeze({
   DISCONNECTED: 'disconnected',
@@ -45,6 +49,9 @@ export function isDatabaseConnected() {
 }
 
 export async function connectDatabase() {
+  // Ensure DNS resolver is configured in development prior to any Mongoose SRV lookups
+  configureDevelopmentDns();
+
   if (mongoose.connection.readyState === 1) {
     currentState = DB_STATES.CONNECTED;
     return true;

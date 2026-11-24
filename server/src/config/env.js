@@ -24,6 +24,8 @@ export const env = Object.freeze({
   RATE_LIMIT_WINDOW_MS: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10) || 15 * 60 * 1000, // 15 mins
   RATE_LIMIT_MAX: parseInt(process.env.RATE_LIMIT_MAX, 10) || 100,
   SCAN_RATE_LIMIT_MAX: parseInt(process.env.SCAN_RATE_LIMIT_MAX, 10) || 30,
-  AUTH_RATE_LIMIT_MAX: parseInt(process.env.AUTH_RATE_LIMIT_MAX, 10) || ((process.env.NODE_ENV || 'development') === 'test' ? 1000 : 30),
+  AUTH_RATE_LIMIT_MAX: (process.env.NODE_ENV === 'test') ? 1000 : (parseInt(process.env.AUTH_RATE_LIMIT_MAX, 10) || 30),
+  DEV_CUSTOM_DNS: process.env.DEV_CUSTOM_DNS !== 'false',
+  DEV_DNS_SERVERS: process.env.DEV_DNS_SERVERS ? process.env.DEV_DNS_SERVERS.split(',').map(s => s.trim()) : null,
   IS_PRODUCTION: (process.env.NODE_ENV || 'development') === 'production',
 });
